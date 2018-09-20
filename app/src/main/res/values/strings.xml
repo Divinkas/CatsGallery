@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Галерея</string>
+
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="password2">Повторите пароль</string>
+    <string name="registration">Реестрация</string>
+    <string name="singIn">Войти</string>
+    <string name="logOut">Выйти</string>
+
+    <string name="profile">Профиль</string>
+    <string name="catalog">Каталог</string>
+    <string name="setting">Настройки</string>
+
+    <string name="q">Результат запроса</string>
+    <string name="save">Сохранить</string>
+    <string name="err_connection">Error connection!</string>
+    <string name="newChance">Попробовать еще раз</string>
+</resources>
