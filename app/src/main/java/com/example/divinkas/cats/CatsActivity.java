@@ -10,9 +10,8 @@ import android.support.v7.widget.Toolbar;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.divinkas.cats.Adapter.GalleryAdapter;
-import com.example.divinkas.cats.Data.PicktureObj;
-import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.CatsPresenter;
+import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.View.IcatsView;
 
 
@@ -22,25 +21,17 @@ public class CatsActivity extends MvpAppCompatActivity implements IcatsView {
     public CatsPresenter catsPresenter;
 
     private RecyclerView rvContainerImages;
-    Toolbar mytoolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private Toolbar mytoolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cats);
-        catsPresenter = new CatsPresenter();
-    }
 
-    @Override
-    public void showListImages(PicktureObj picktureObj) {
-        rvContainerImages.setLayoutManager(new LinearLayoutManager(this));
-        rvContainerImages.setAdapter(new GalleryAdapter(picktureObj.getHits(), this));
-    }
+        catsPresenter.setBaseContext(getApplicationContext());
 
-    @Override
-    public void findElementsView() {
         mytoolbar = findViewById(R.id.toolbar1);
         drawerLayout = findViewById(R.id.drawerLayoutMain);
         navigationView = findViewById(R.id.navigationViewMain);
@@ -48,5 +39,10 @@ public class CatsActivity extends MvpAppCompatActivity implements IcatsView {
 
         InitNavigation initNavigation = new InitNavigation(this);
         initNavigation.init(mytoolbar, drawerLayout, navigationView);
+
+        rvContainerImages.setLayoutManager(new LinearLayoutManager(this));
+        rvContainerImages.setAdapter(catsPresenter.getAdapter());
+
     }
+
 }

@@ -28,7 +28,6 @@ public class ProfileActivity extends MvpAppCompatActivity implements IproileView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        profilePresenter = new ProfilePresenter();
     }
 
     @Override

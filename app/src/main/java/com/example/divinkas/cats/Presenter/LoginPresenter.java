@@ -9,8 +9,6 @@ public class LoginPresenter extends MvpPresenter<IloginView> {
 
 
     public LoginPresenter(){
-        getViewState().findElems();
-        getViewState().init();
 
     }
 

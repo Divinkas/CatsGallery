@@ -15,7 +15,7 @@ public class SettingPresenter extends MvpPresenter<IsettingView> {
     }
 
     public void setDefaultTextQuery(String s){
-        MainActivity.defaultAPI_params.q = s;
+        DefaultAPI_params.q = s;
     }
 
 }

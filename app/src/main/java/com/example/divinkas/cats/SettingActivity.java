@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.example.divinkas.cats.Retrofit.DefaultAPI_params;
 import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.SettingPresenter;
 import com.example.divinkas.cats.View.IsettingView;
@@ -29,7 +30,6 @@ public class SettingActivity extends MvpAppCompatActivity implements IsettingVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        settingPresenter = new SettingPresenter();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class SettingActivity extends MvpAppCompatActivity implements IsettingVie
 
     @Override
     public void init() {
-        etSave.setText(MainActivity.defaultAPI_params.q);
+        etSave.setText(DefaultAPI_params.q);
     }
 
     @Override

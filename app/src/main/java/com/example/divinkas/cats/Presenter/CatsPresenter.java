@@ -1,54 +1,38 @@
 package com.example.divinkas.cats.Presenter;
 
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.divinkas.cats.Data.PicktureObj;
-import com.example.divinkas.cats.Retrofit.DefaultAPI_params;
-import com.example.divinkas.cats.Retrofit.IPickturesList;
-import com.example.divinkas.cats.Retrofit.RetrofitClient;
+import com.example.divinkas.cats.Adapter.GalleryAdapter;
+import com.example.divinkas.cats.Data.Hit;
+import com.example.divinkas.cats.Model.CatsModel;
 import com.example.divinkas.cats.View.IcatsView;
 
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
+import java.util.ArrayList;
+import java.util.List;
 
 @InjectViewState
 public class CatsPresenter extends MvpPresenter<IcatsView> {
-    private PicktureObj data;
+
+    private CatsModel catsModel;
+    private GalleryAdapter galleryAdapter;
+    Context context;
 
     public CatsPresenter(){
-        getViewState().findElementsView();
-        Retrofit retrofit = RetrofitClient.getInstance();
-        IPickturesList iPickturesList = retrofit.create(IPickturesList.class);
-        Observer<PicktureObj> objObserver = new Observer<PicktureObj>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(PicktureObj picktureObj) {
-                data = picktureObj;
-                getViewState().showListImages(data);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        };
-
-        iPickturesList.getListPicktures(DefaultAPI_params.key, DefaultAPI_params.q)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(objObserver);
+        catsModel = new CatsModel();
     }
 
+    public void setBaseContext(Context context){
+        if(this.context== null){
+            this.context = context;
+            galleryAdapter = new GalleryAdapter(new ArrayList<>(), context);
+            catsModel.updateData(galleryAdapter);
+        }
+    }
+
+    public GalleryAdapter getAdapter() {
+        return galleryAdapter;
+    }
 }

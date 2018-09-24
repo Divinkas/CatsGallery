@@ -42,6 +42,16 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView, V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        etLogin = findViewById(R.id.etLogin);
+        etPass = findViewById(R.id.etPass);
+        btnLogin = findViewById(R.id.btnSingIn);
+        btnReg = findViewById(R.id.btnReg);
+        btnSingIn = findViewById(R.id.btnSingInGoogle);
+
+        btnLogin.setOnClickListener(this);
+        btnReg.setOnClickListener(this);
+        btnSingIn.setOnClickListener(this);
+
         mAuth = FirebaseAuth.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -49,24 +59,8 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView, V
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        loginPresenter = new LoginPresenter();
     }
 
-    @Override
-    public void findElems() {
-        etLogin = findViewById(R.id.etLogin);
-        etPass = findViewById(R.id.etPass);
-        btnLogin = findViewById(R.id.btnSingIn);
-        btnReg = findViewById(R.id.btnReg);
-        btnSingIn = findViewById(R.id.btnSingInGoogle);
-    }
-
-    @Override
-    public void init() {
-        btnLogin.setOnClickListener(this);
-        btnReg.setOnClickListener(this);
-        btnSingIn.setOnClickListener(this);
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -15,7 +15,7 @@ import com.example.divinkas.cats.R;
 
 import java.util.List;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
     private List<Hit> hitList;
     private Context context;
 
@@ -24,14 +24,19 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         this.context = context;
     }
 
+    @Override
+    public int getItemCount() {
+        return hitList.size();
+    }
+
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_img, parent, false));
+    public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new GalleryViewHolder(LayoutInflater.from(context).inflate(R.layout.item_img, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
         holder.setIsRecyclable(false);
         Glide.with(context)
                 .load(hitList.get(position).getLargeImageURL())
@@ -40,11 +45,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .centerCrop()
                 .into(holder.items);
-    }
-
-    @Override
-    public int getItemCount() {
-        return hitList.size();
     }
 
     @Override
@@ -57,11 +57,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         return position;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        public ImageView items;
-        public MyViewHolder(View itemView) {
+    public void setNewListData(List<Hit> newList){
+        hitList = newList;
+        notifyDataSetChanged();
+    }
+
+    class GalleryViewHolder extends RecyclerView.ViewHolder{
+        ImageView items;
+
+        GalleryViewHolder(View itemView) {
             super(itemView);
             items = itemView.findViewById(R.id.imgCats);
         }
     }
+
 }
