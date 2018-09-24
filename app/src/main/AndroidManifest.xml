@@ -17,24 +17,24 @@
         android:fullBackupContent="true"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ErrActivity"/>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".Activity.ErrActivity"/>
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.RegistrationActivity" />
         <activity
-            android:name=".CatsActivity"
+            android:name=".Activity.CatsActivity"
             android:theme="@style/MyAppsTheme" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activity.ProfileActivity"
             android:theme="@style/MyAppsTheme" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".Activity.SettingActivity"
             android:theme="@style/MyAppsTheme" />
 
     </application>

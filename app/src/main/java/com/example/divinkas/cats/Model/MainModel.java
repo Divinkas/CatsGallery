@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.example.divinkas.cats.CatsActivity;
-import com.example.divinkas.cats.ErrActivity;
-import com.example.divinkas.cats.LoginActivity;
-import com.example.divinkas.cats.MainActivity;
-import com.example.divinkas.cats.RegistrationActivity;
+import com.example.divinkas.cats.Activity.CatsActivity;
+import com.example.divinkas.cats.Activity.ErrActivity;
+import com.example.divinkas.cats.Activity.LoginActivity;
+import com.example.divinkas.cats.Activity.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

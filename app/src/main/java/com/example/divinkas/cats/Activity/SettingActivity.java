@@ -1,4 +1,4 @@
-package com.example.divinkas.cats;
+package com.example.divinkas.cats.Activity;
 
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.example.divinkas.cats.R;
 import com.example.divinkas.cats.Retrofit.DefaultAPI_params;
 import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.SettingPresenter;

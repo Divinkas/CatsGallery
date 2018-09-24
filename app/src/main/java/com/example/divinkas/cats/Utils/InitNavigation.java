@@ -7,14 +7,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.example.divinkas.cats.CatsActivity;
-import com.example.divinkas.cats.MainActivity;
-import com.example.divinkas.cats.Presenter.ProfilePresenter;
-import com.example.divinkas.cats.ProfileActivity;
+import com.example.divinkas.cats.Activity.CatsActivity;
+import com.example.divinkas.cats.Activity.MainActivity;
+import com.example.divinkas.cats.Activity.ProfileActivity;
 import com.example.divinkas.cats.R;
-import com.example.divinkas.cats.SettingActivity;
+import com.example.divinkas.cats.Activity.SettingActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class InitNavigation {
     private Context context;

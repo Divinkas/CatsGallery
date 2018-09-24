@@ -1,4 +1,4 @@
-package com.example.divinkas.cats;
+package com.example.divinkas.cats.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,6 +11,7 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.divinkas.cats.Adapter.GalleryAdapter;
 import com.example.divinkas.cats.Presenter.CatsPresenter;
+import com.example.divinkas.cats.R;
 import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.View.IcatsView;
 

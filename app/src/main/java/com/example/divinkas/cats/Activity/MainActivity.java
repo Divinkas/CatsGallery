@@ -1,4 +1,4 @@
-package com.example.divinkas.cats;
+package com.example.divinkas.cats.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;

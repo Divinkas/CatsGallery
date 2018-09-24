@@ -1,4 +1,4 @@
-package com.example.divinkas.cats;
+package com.example.divinkas.cats.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.divinkas.cats.Presenter.LoginPresenter;
+import com.example.divinkas.cats.R;
 import com.example.divinkas.cats.View.IloginView;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
