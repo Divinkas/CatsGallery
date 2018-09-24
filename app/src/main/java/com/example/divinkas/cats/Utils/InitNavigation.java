@@ -1,4 +1,4 @@
-package com.example.divinkas.cats.Model;
+package com.example.divinkas.cats.Utils;
 
 import android.content.Context;
 import android.content.Intent;

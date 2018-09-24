@@ -11,7 +11,7 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.divinkas.cats.Adapter.GalleryAdapter;
 import com.example.divinkas.cats.Data.PicktureObj;
-import com.example.divinkas.cats.Model.InitNavigation;
+import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.CatsPresenter;
 import com.example.divinkas.cats.View.IcatsView;
 

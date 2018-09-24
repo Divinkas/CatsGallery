@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.example.divinkas.cats.Model.InitNavigation;
+import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.ProfilePresenter;
 import com.example.divinkas.cats.View.IproileView;
 

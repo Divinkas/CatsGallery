@@ -10,10 +10,8 @@ import android.widget.EditText;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.example.divinkas.cats.Model.InitNavigation;
-import com.example.divinkas.cats.Presenter.CatsPresenter;
+import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.SettingPresenter;
-import com.example.divinkas.cats.Retrofit.DefaultAPI_params;
 import com.example.divinkas.cats.View.IsettingView;
 
 public class SettingActivity extends MvpAppCompatActivity implements IsettingView, View.OnClickListener {
