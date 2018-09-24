@@ -6,22 +6,18 @@ import android.widget.ImageView;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.divinkas.cats.R;
-import com.example.divinkas.cats.View.IproileView;
+import com.example.divinkas.cats.View.IprofileView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 @InjectViewState
-public class ProfilePresenter extends MvpPresenter<IproileView> {
+public class ProfilePresenter extends MvpPresenter<IprofileView> {
     private FirebaseUser user;
 
     public ProfilePresenter(){
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-
-        getViewState().findElements();
-        getViewState().inputData();
     }
 
     public String getNameUser() {

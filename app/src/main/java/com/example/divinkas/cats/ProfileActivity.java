@@ -11,27 +11,24 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.ProfilePresenter;
-import com.example.divinkas.cats.View.IproileView;
+import com.example.divinkas.cats.View.IprofileView;
 
-public class ProfileActivity extends MvpAppCompatActivity implements IproileView {
+public class ProfileActivity extends MvpAppCompatActivity implements IprofileView {
 
     @InjectPresenter
     public ProfilePresenter profilePresenter;
 
-    TextView tvName, tvMail;
-    ImageView imageView;
-    Toolbar mytoolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private TextView tvName, tvMail;
+    private ImageView imageView;
+    private Toolbar mytoolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-    }
 
-    @Override
-    public void findElements() {
         tvName = findViewById(R.id.tvProfileName);
         tvMail = findViewById(R.id.tvProfileMail);
         imageView = findViewById(R.id.imvProfile);
@@ -41,12 +38,11 @@ public class ProfileActivity extends MvpAppCompatActivity implements IproileView
 
         InitNavigation initNavigation = new InitNavigation(this);
         initNavigation.init(mytoolbar, drawerLayout, navigationView);
-    }
 
-    @Override
-    public void inputData() {
         tvName.setText(profilePresenter.getNameUser());
         tvMail.setText(profilePresenter.getMailUser());
         profilePresenter.setImage(imageView, this);
     }
+
+
 }

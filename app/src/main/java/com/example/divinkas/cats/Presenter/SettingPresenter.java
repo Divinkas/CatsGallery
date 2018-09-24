@@ -10,8 +10,6 @@ import com.example.divinkas.cats.View.IsettingView;
 public class SettingPresenter extends MvpPresenter<IsettingView> {
 
     public SettingPresenter() {
-        getViewState().findElements();
-        getViewState().init();
     }
 
     public void setDefaultTextQuery(String s){

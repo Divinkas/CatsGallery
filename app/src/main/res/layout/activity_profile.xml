@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/imvProfile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/width_image_profile"
+            android:layout_height="@dimen/height_image_profile"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/profile" />

@@ -15,37 +15,22 @@ import com.example.divinkas.cats.Utils.InitNavigation;
 import com.example.divinkas.cats.Presenter.SettingPresenter;
 import com.example.divinkas.cats.View.IsettingView;
 
-public class SettingActivity extends MvpAppCompatActivity implements IsettingView, View.OnClickListener {
+public class SettingActivity extends MvpAppCompatActivity implements IsettingView {
 
-    EditText etSave;
-    Button btnSave;
-    Toolbar mytoolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private EditText etSave;
+    private Button btnSave;
+    private Toolbar mytoolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private View.OnClickListener dataChangeListener;
 
     @InjectPresenter
-    SettingPresenter settingPresenter;
+    public SettingPresenter settingPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(!etSave.getText().toString().isEmpty()){
-            settingPresenter.setDefaultTextQuery(etSave.getText().toString());
-        }
-    }
-
-    @Override
-    public void init() {
-        etSave.setText(DefaultAPI_params.q);
-    }
-
-    @Override
-    public void findElements() {
         etSave = findViewById(R.id.etKey);
         btnSave = findViewById(R.id.btnSaveSetting);
         mytoolbar = findViewById(R.id.toolbarS);
@@ -54,5 +39,16 @@ public class SettingActivity extends MvpAppCompatActivity implements IsettingVie
 
         InitNavigation initNavigation = new InitNavigation(this);
         initNavigation.init(mytoolbar, drawerLayout, navigationView);
+
+        etSave.setText(DefaultAPI_params.q);
+        btnSave.setOnClickListener(dataChangeListener);
+
+        dataChangeListener = v -> {
+            if(!etSave.getText().toString().isEmpty()){
+                settingPresenter.setDefaultTextQuery(etSave.getText().toString());
+            }
+        };
+
     }
+
 }

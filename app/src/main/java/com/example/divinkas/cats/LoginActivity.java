@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -71,7 +72,7 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView, V
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
             } catch (ApiException ignored) {
-
+                Toast.makeText(this, "Авторизация провалена!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -87,6 +88,7 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView, V
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        setContentView(R.layout.activity_main); // it's progress bar
                         gotoCatsActivity();
                     }
                 });

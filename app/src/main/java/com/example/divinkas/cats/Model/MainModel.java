@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 
 import com.example.divinkas.cats.CatsActivity;
 import com.example.divinkas.cats.ErrActivity;
+import com.example.divinkas.cats.LoginActivity;
 import com.example.divinkas.cats.MainActivity;
 import com.example.divinkas.cats.RegistrationActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,7 +48,7 @@ public class MainModel {
 
         if(name.equals("Error")){ intent = new Intent(context, ErrActivity.class); }
         if(name.equals("Cats")){ intent = new Intent(context, CatsActivity.class); }
-        if(name.equals("Registration")){ intent = new Intent(context, RegistrationActivity.class); }
+        if(name.equals("Login")){ intent = new Intent(context, LoginActivity.class); }
 
         return intent;
     }

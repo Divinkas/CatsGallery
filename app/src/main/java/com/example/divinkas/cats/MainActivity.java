@@ -18,7 +18,7 @@ public class MainActivity extends MvpAppCompatActivity implements ImainView {
         super.onCreate(savedInstanceState);
         if(mainPresenter.isNetworkConnect(this)){
             if(mainPresenter.isAuthorizeUser()){ gotoNextView("Cats"); }
-            else { gotoNextView("Registration"); }
+            else { gotoNextView("Login"); }
         }
         else {
             gotoNextView("Error");
