@@ -36,8 +36,6 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView {
     private Button btnLogin, btnOpenRegistrationView;
     private SignInButton btnSingInWithGoogle;
 
-    private View.OnClickListener login_and_openRegistration_listener;
-
     @InjectPresenter
     public LoginPresenter loginPresenter;
 
@@ -52,19 +50,8 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView {
         btnOpenRegistrationView = findViewById(R.id.btnReg);
         btnSingInWithGoogle = findViewById(R.id.btnSingInGoogle);
 
-        btnLogin.setOnClickListener(login_and_openRegistration_listener);
-        btnOpenRegistrationView.setOnClickListener(login_and_openRegistration_listener);
-        btnSingInWithGoogle.setOnClickListener(login_and_openRegistration_listener);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        login_and_openRegistration_listener = v -> {
-            switch (v.getId()){
+        View.OnClickListener login_and_openRegistration_listener = v -> {
+            switch (v.getId()) {
                 case R.id.btnSingIn:
                     mailSingIn();
                     break;
@@ -78,6 +65,19 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView {
                     break;
             }
         };
+
+        btnLogin.setOnClickListener(login_and_openRegistration_listener);
+        btnOpenRegistrationView.setOnClickListener(login_and_openRegistration_listener);
+        btnSingInWithGoogle.setOnClickListener(login_and_openRegistration_listener);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
 
     }
 
@@ -104,10 +104,14 @@ public class LoginActivity extends MvpAppCompatActivity implements IloginView {
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, task -> {
+                .addOnCompleteListener(LoginActivity.this, task -> {
+                    setContentView(R.layout.activity_main); // it's progress bar
                     if (task.isSuccessful()) {
-                        setContentView(R.layout.activity_main); // it's progress bar
                         gotoCatsActivity();
+                        Toast.makeText(this, "Выполнен вход", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        setContentView(R.layout.activity_login);
                     }
                 });
     }
